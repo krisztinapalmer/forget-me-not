@@ -12,9 +12,9 @@ public class AddActivity extends AppCompatActivity {
 
     public static final int INSERT_ERROR = -1;
 
-    EditText etItemName, etQuantity;
-    String name;
-    long recordId = INSERT_ERROR;
+    private EditText etItemName, etQuantity;
+    private String name;
+    private long recordId = INSERT_ERROR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,14 +15,7 @@ public class ShoppingDataSource {
 
     private SQLiteDatabase database;
     private ShoppingSQLiteOpenHelper dbHelper;
-    ContentValues values;
-
-    private static final String[] shoppingColumns = {
-            ShoppingSQLiteOpenHelper.COLUMN_ID,
-            ShoppingSQLiteOpenHelper.COLUMN_NAME,
-            ShoppingSQLiteOpenHelper.COLUMN_QUANTITY,
-            ShoppingSQLiteOpenHelper.COLUMN_IS_PURCHASED
-    };
+    private ContentValues values;
 
     public ShoppingDataSource(Context context) {
         dbHelper = new ShoppingSQLiteOpenHelper(context);
@@ -69,7 +62,7 @@ public class ShoppingDataSource {
     public List<ShoppingItem> getAll() {
         List<ShoppingItem> items = new ArrayList<>();
 
-        Cursor cursor = database.query(ShoppingSQLiteOpenHelper.TABLE_SHOPPING, shoppingColumns,
+        Cursor cursor = database.query(ShoppingSQLiteOpenHelper.TABLE_SHOPPING, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

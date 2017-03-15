@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ClearActivity extends AppCompatActivity {
 
-    ShoppingDataSource dataSource;
-    ShoppingItemAdapter adapter;
+    private ShoppingDataSource dataSource;
+    private ShoppingItemAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,8 @@ public class ClearActivity extends AppCompatActivity {
         dataSource.open();
         dataSource.deleteAll();
         dataSource.close();
+        adapter.clear();
+        adapter.notifyDataSetChanged();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

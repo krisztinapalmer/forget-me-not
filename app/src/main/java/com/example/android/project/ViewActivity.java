@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ViewActivity extends AppCompatActivity {
 
-    ShoppingDataSource dataSource;
+    private ShoppingDataSource dataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

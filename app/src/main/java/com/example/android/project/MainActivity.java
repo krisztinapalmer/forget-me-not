@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int REQUEST_CODE_ADD = 1;
+    public static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.addItemBtn:
                 intent = new Intent(this, AddActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_ADD);
+                startActivityForResult(intent, REQUEST_CODE);
                 break;
             case R.id.clearListBtn:
                 intent = new Intent(this, ClearActivity.class);
@@ -36,12 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_CODE_ADD && data.hasExtra("name")) {
-                String name = data.getStringExtra("name");
-                Toast.makeText(this, name + " is successfully added to database!",
-                        Toast.LENGTH_SHORT).show();
-            }
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE && data.hasExtra("name")) {
+            String name = data.getStringExtra("name");
+            Toast.makeText(this, name + " is successfully added to database!",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }
