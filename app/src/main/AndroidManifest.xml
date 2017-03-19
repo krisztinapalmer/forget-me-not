@@ -17,13 +17,13 @@
         </activity>
         <activity android:name=".ViewActivity"
             android:parentActivityName=".MainActivity"
-            android:label="View Items"></activity>
+            android:label="View List"></activity>
         <activity android:name=".AddActivity"
             android:parentActivityName=".MainActivity"
-            android:label="Add Items"></activity>
+            android:label="Add Item"></activity>
         <activity android:name=".ClearActivity"
             android:parentActivityName=".MainActivity"
-            android:label="Clear items"></activity>
+            android:label="Clear List"></activity>
     </application>
 
 </manifest>

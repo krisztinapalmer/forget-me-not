@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE && data.hasExtra("name")) {
             String name = data.getStringExtra("name");
-            Toast.makeText(this, name + " is successfully added to database!",
+            Toast.makeText(this, name + " is successfully added to the list!",
                     Toast.LENGTH_SHORT).show();
         }
     }

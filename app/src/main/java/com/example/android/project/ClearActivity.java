@@ -33,7 +33,7 @@ public class ClearActivity extends AppCompatActivity {
         dataSource.close();
 
         if (items.size() == 0) {
-            Toast.makeText(this, "No item stored in database!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No item stored in the list!", Toast.LENGTH_SHORT).show();
         } else {
             for (ShoppingItem item : items) {
                 adapter.add(item);

@@ -3,7 +3,7 @@
     <string name="view_list_btn">View List</string>
     <string name="add_item_btn">Add Item</string>
     <string name="clear_list_btn">Clear List</string>
-    <string name="item_name_label">Item Name</string>
+    <string name="item_name_label">Item</string>
     <string name="quantity_label">Quantity</string>
     <string name="clear_all_btn">Clear All</string>
 </resources>
