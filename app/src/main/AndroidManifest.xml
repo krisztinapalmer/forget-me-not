@@ -15,15 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="View List"></activity>
-        <activity android:name=".AddActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Add Item"></activity>
-        <activity android:name=".ClearActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Clear List"></activity>
+        <activity
+            android:name=".ViewActivity"
+            android:label="View List"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddActivity"
+            android:label="Add Item"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ClearActivity"
+            android:label="Clear List"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

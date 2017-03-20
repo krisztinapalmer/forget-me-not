@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:id="@+id/tvName"
         android:padding="15dp"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size"
         android:text="Apple"
         android:layout_weight="1"
         android:layout_width="0dp"
@@ -27,7 +27,7 @@
         android:layout_gravity="center"
         android:id="@+id/tvQuantity"
         android:padding="15dp"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size"
         android:text="3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

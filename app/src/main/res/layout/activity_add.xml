@@ -27,7 +27,7 @@
                 android:layout_gravity="left"
                 android:padding="20dp"
                 android:text="@string/item_name_label"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size" />
 
             <EditText
                 android:inputType="text"
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size" />
 
         </LinearLayout>
 
@@ -52,7 +52,7 @@
                 android:layout_marginTop="20dp"
                 android:padding="20dp"
                 android:text="@string/quantity_label"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size" />
 
             <EditText
                 android:maxLines="1"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal|text"
                 android:padding="20dp"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size" />
 
         </LinearLayout>
 
@@ -73,6 +73,6 @@
         android:onClick="addItem"
         android:padding="20dp"
         android:text="@string/add_item_btn"
-        android:textSize="20sp" />
+        android:textSize="@dimen/text_size" />
 
 </LinearLayout>

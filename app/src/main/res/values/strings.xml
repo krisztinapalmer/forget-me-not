@@ -6,4 +6,7 @@
     <string name="item_name_label">Item</string>
     <string name="quantity_label">Quantity</string>
     <string name="clear_all_btn">Clear All</string>
+    <string name="settings_title">Settings</string>
+    <string name="sound_title">Sound</string>
+    <string name="on_or_off">On or Off</string>
 </resources>
