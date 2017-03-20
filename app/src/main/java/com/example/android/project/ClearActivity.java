@@ -1,5 +1,7 @@
 package com.example.android.project;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,13 +60,30 @@ public class ClearActivity extends AppCompatActivity {
     }
 
     public void clearAll(View view) {
-        dataSource = new ShoppingDataSource(this);
-        dataSource.open();
-        dataSource.deleteAll();
-        dataSource.close();
-        adapter.clear();
-        adapter.notifyDataSetChanged();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        dataSource = new ShoppingDataSource(ClearActivity.this);
+                        dataSource.open();
+                        dataSource.deleteAll();
+                        dataSource.close();
+                        adapter.clear();
+                        adapter.notifyDataSetChanged();
+                        Intent intent = new Intent(ClearActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        dialog.dismiss();
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure to clear all?")
+                .setPositiveButton("Clear", dialogClickListener)
+                .setNegativeButton("Cancel", dialogClickListener).show();
     }
 }
