@@ -35,7 +35,7 @@ public class ClearActivity extends AppCompatActivity {
         dataSource.close();
 
         if (items.size() == 0) {
-            Toast.makeText(this, "No item stored in the list!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No item stored in the list.", Toast.LENGTH_SHORT).show();
         } else {
             for (ShoppingItem item : items) {
                 adapter.add(item);
@@ -54,7 +54,7 @@ public class ClearActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
 
                 Toast.makeText(ClearActivity.this, item.getName() +
-                        " has been removed from the list!", Toast.LENGTH_SHORT).show();
+                        " has been removed from the list.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -71,6 +71,10 @@ public class ClearActivity extends AppCompatActivity {
                         dataSource.close();
                         adapter.clear();
                         adapter.notifyDataSetChanged();
+
+                        Toast.makeText(ClearActivity.this, "The list has been cleared.",
+                                Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(ClearActivity.this, MainActivity.class);
                         startActivity(intent);
                         break;

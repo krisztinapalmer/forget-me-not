@@ -34,23 +34,18 @@ public class AddActivity extends AppCompatActivity {
         if (name.equals("")) {
             Toast.makeText(this, "Please add an item name!", Toast.LENGTH_SHORT).show();
         } else if (!TextUtils.isDigitsOnly(stringQuantity) || stringQuantity.equals("")) {
-            Toast.makeText(this, "Please add a whole number to quantity!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please add a number to quantity!", Toast.LENGTH_SHORT).show();
         } else {
             int quantity = Integer.parseInt(stringQuantity);
             dataSource.open();
             this.recordId = dataSource.insert(name, quantity);
             dataSource.close();
-            finish();
-        }
-    }
 
-    @Override
-    public void finish() {
-        Intent intent = new Intent();
-        if (this.recordId != INSERT_ERROR) {
-            intent.putExtra("name", name);
+            Toast.makeText(this, name + " is successfully added to the list.",
+                    Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
-        setResult(RESULT_OK, intent);
-        super.finish();
     }
 }
