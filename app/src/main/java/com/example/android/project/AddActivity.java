@@ -10,11 +10,7 @@ import android.widget.Toast;
 
 public class AddActivity extends AppCompatActivity {
 
-    public static final int INSERT_ERROR = -1;
-
     private EditText etItemName, etQuantity;
-    private String name;
-    private long recordId = INSERT_ERROR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +24,20 @@ public class AddActivity extends AppCompatActivity {
     public void addItem(View view) {
         ShoppingDataSource dataSource = new ShoppingDataSource(this);
 
-        name = etItemName.getText().toString().trim();
+        String name = etItemName.getText().toString().trim();
         String stringQuantity = etQuantity.getText().toString().trim();
 
         if (name.equals("")) {
             Toast.makeText(this, "Please add an item name!", Toast.LENGTH_SHORT).show();
-        } else if (!TextUtils.isDigitsOnly(stringQuantity) || stringQuantity.equals("")) {
-            Toast.makeText(this, "Please add a number to quantity!", Toast.LENGTH_SHORT).show();
         } else {
-            int quantity = Integer.parseInt(stringQuantity);
+            int quantity = 1;
+
+            if (!stringQuantity.equals("") && TextUtils.isDigitsOnly(stringQuantity) ) {
+                quantity = Integer.parseInt(stringQuantity);
+            }
+
             dataSource.open();
-            this.recordId = dataSource.insert(name, quantity);
+            dataSource.insert(name, quantity);
             dataSource.close();
 
             Toast.makeText(this, name + " is successfully added to the list.",

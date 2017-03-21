@@ -33,7 +33,7 @@ public class ShoppingDataSource {
         database.close();
     }
 
-    public long insert(String name, int quantity) {
+    public void insert(String name, int quantity) {
         values = new ContentValues();
         values.put(ShoppingSQLiteOpenHelper.COLUMN_NAME, name);
         values.put(ShoppingSQLiteOpenHelper.COLUMN_QUANTITY, quantity);
@@ -42,8 +42,6 @@ public class ShoppingDataSource {
         long id = database.insert(ShoppingSQLiteOpenHelper.TABLE_SHOPPING, null, values);
 
         Log.d(TAG, "Inserted person " + id + " into the database!");
-
-        return id;
     }
 
     public void delete(ShoppingItem shoppingItem) {
