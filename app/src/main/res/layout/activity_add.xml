@@ -70,7 +70,10 @@
 
     </LinearLayout>
     <Button
-        android:layout_width="match_parent"
+        android:textColor="@color/whiteColor"
+        android:background="@drawable/my_button"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:onClick="addItem"
         android:padding="20dp"
