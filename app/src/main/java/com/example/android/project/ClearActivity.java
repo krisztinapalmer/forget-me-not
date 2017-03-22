@@ -37,7 +37,7 @@ public class ClearActivity extends AppCompatActivity {
         dataSource.close();
 
         if (items.size() == 0) {
-            Toast.makeText(this, "No item stored in the list.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.No_item_stored_in_the_list, Toast.LENGTH_SHORT).show();
         } else {
 
             // Sorting
@@ -47,13 +47,11 @@ public class ClearActivity extends AppCompatActivity {
                     return o1.getIsPurchased() > o2.getIsPurchased() ? 1 : -1 ;
                 }
             });
-            
+
             for (ShoppingItem item : items) {
                 adapter.add(item);
             }
         }
-
-
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -66,8 +64,10 @@ public class ClearActivity extends AppCompatActivity {
                 adapter.remove(adapter.getItem(position));
                 adapter.notifyDataSetChanged();
 
+
+                String msg = getResources().getString(R.string.has_been_removed_from_the_list);
                 Toast.makeText(ClearActivity.this, item.getName() +
-                        " has been removed from the list.", Toast.LENGTH_SHORT).show();
+                        " " + msg, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -85,7 +85,7 @@ public class ClearActivity extends AppCompatActivity {
                         adapter.clear();
                         adapter.notifyDataSetChanged();
 
-                        Toast.makeText(ClearActivity.this, "The list has been cleared.",
+                        Toast.makeText(ClearActivity.this, R.string.The_list_has_been_cleared,
                                 Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(ClearActivity.this, MainActivity.class);
@@ -99,8 +99,8 @@ public class ClearActivity extends AppCompatActivity {
         };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure to clear all?")
-                .setPositiveButton("Clear", dialogClickListener)
-                .setNegativeButton("Cancel", dialogClickListener).show();
+        builder.setMessage(R.string.Are_you_sure_to_clear_all)
+                .setPositiveButton(R.string.Clear_confirmation, dialogClickListener)
+                .setNegativeButton(R.string.Cancel_confirmation, dialogClickListener).show();
     }
 }

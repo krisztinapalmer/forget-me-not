@@ -17,18 +17,18 @@
         </activity>
         <activity
             android:name=".ViewActivity"
-            android:label="View List"
+            android:label="@string/view_list_btn"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddActivity"
-            android:label="Add Item"
+            android:label="@string/add_item_btn"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ClearActivity"
-            android:label="Clear List"
+            android:label="@string/clear_list_btn"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".SettingsActivity"
-            android:label="Settings"
+            android:label="@string/settings_title"
             android:parentActivityName=".MainActivity"/>
     </application>
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nefelejcs</string>
+    <string name="view_list_btn">Nézd meg a listát</string>
+    <string name="add_item_btn">Adj hozzá a listához</string>
+    <string name="clear_list_btn">Töröld a listát</string>
+    <string name="item_name_label">Cikk</string>
+    <string name="quantity_label">Mennyiség</string>
+    <string name="clear_all_btn">Töröld az összeset</string>
+    <string name="settings_title">Beállítások</string>
+    <string name="sound_title">Hang</string>
+    <string name="on_or_off">Be vagy Ki</string>
+    <string name="Please_add_an_item_name">Kérlek, adj meg egy cikket!</string>
+    <string name="is_successfully_added_to_the_list">sikeresen hozzá lett adva a listához.</string>
+    <string name="No_item_stored_in_the_list">A lista üres.</string>
+    <string name="has_been_removed_from_the_list"> törölve a listáról.</string>
+    <string name="The_list_has_been_cleared">A lista törölve.</string>
+    <string name="Are_you_sure_to_clear_all">Biztos, hogy mindet törölni akarod?</string>
+    <string name="Clear_confirmation">Töröl</string>
+    <string name="Cancel_confirmation">Mégse</string>
+</resources>

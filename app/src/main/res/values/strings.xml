@@ -9,4 +9,12 @@
     <string name="settings_title">Settings</string>
     <string name="sound_title">Sound</string>
     <string name="on_or_off">On or Off</string>
+    <string name="Please_add_an_item_name">Please add an item name!</string>
+    <string name="is_successfully_added_to_the_list">is successfully added to the list.</string>
+    <string name="No_item_stored_in_the_list">No item stored in the list.</string>
+    <string name="has_been_removed_from_the_list">has been removed from the list.</string>
+    <string name="The_list_has_been_cleared">The list has been cleared.</string>
+    <string name="Are_you_sure_to_clear_all">Are you sure to clear all?</string>
+    <string name="Clear_confirmation">Clear</string>
+    <string name="Cancel_confirmation">Cancel</string>
 </resources>

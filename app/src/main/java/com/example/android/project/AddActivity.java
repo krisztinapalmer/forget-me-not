@@ -28,7 +28,7 @@ public class AddActivity extends AppCompatActivity {
         String stringQuantity = etQuantity.getText().toString().trim();
 
         if (name.equals("")) {
-            Toast.makeText(this, "Please add an item name!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.Please_add_an_item_name, Toast.LENGTH_SHORT).show();
         } else {
             int quantity = 1;
 
@@ -40,7 +40,8 @@ public class AddActivity extends AppCompatActivity {
             dataSource.insert(name, quantity);
             dataSource.close();
 
-            Toast.makeText(this, name + " is successfully added to the list.",
+            String msg = getResources().getString(R.string.is_successfully_added_to_the_list);
+            Toast.makeText(this, name + " " + msg,
                     Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, MainActivity.class);

@@ -34,7 +34,7 @@ public class ViewActivity extends AppCompatActivity {
         dataSource.close();
 
         if (items.size() == 0) {
-            Toast.makeText(this, "No item stored in the list.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.No_item_stored_in_the_list, Toast.LENGTH_SHORT).show();
         } else {
 
             // Sorting
