@@ -57,8 +57,8 @@ public class ShoppingDataSource {
         database.delete(ShoppingSQLiteOpenHelper.TABLE_SHOPPING, null, null);
     }
 
-    public List<ShoppingItem> getAll() {
-        List<ShoppingItem> items = new ArrayList<>();
+    public ArrayList<ShoppingItem> getAll() {
+        ArrayList<ShoppingItem> items = new ArrayList<>();
 
         Cursor cursor = database.query(ShoppingSQLiteOpenHelper.TABLE_SHOPPING, null,
                 null, null, null, null, null);

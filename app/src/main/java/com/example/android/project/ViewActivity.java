@@ -9,6 +9,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ViewActivity extends AppCompatActivity {
@@ -20,7 +22,7 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-        List<ShoppingItem> items = new ArrayList<>();
+        ArrayList<ShoppingItem> items = new ArrayList<>();
         ShoppingItemAdapter adapter = new ShoppingItemAdapter(this, items);
 
         ListView lvItems = (ListView) findViewById(R.id.lvViewList);
@@ -34,6 +36,15 @@ public class ViewActivity extends AppCompatActivity {
         if (items.size() == 0) {
             Toast.makeText(this, "No item stored in the list.", Toast.LENGTH_SHORT).show();
         } else {
+
+            // Sorting
+            Collections.sort(items, new Comparator<ShoppingItem>() {
+                @Override
+                public int compare(ShoppingItem o1, ShoppingItem o2) {
+                    return o1.getIsPurchased() > o2.getIsPurchased() ? 1 : -1 ;
+                }
+            });
+
             for (ShoppingItem item : items) {
                 adapter.add(item);
             }
