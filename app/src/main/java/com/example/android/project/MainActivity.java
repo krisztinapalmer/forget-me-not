@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +17,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        boolean hasList;
+        Button viewButton, clearButton;
+        ArrayList<ShoppingItem> items;
+        ShoppingDataSource dataSource = new ShoppingDataSource(this);
+
+        dataSource.open();
+        items = dataSource.getAll();
+        dataSource.close();
+
+        if (items.size() == 0) {
+            hasList = false;
+        } else {
+            hasList = true;
+        }
+
+        viewButton = (Button) findViewById(R.id.viewListBtn);
+        clearButton = (Button) findViewById(R.id.clearListBtn);
+
+        viewButton.setEnabled(hasList);
+        clearButton.setEnabled(hasList);
     }
 
     @Override
