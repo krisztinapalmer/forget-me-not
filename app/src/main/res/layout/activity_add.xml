@@ -55,6 +55,7 @@
                 android:textSize="@dimen/text_size" />
 
             <EditText
+                android:maxLength="4"
                 android:text="1"
                 android:id="@+id/etQuantity"
                 android:layout_width="match_parent"

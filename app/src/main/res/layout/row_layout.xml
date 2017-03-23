@@ -7,7 +7,6 @@
         android:button="@drawable/checkbox_selector"
         android:layout_gravity="center"
         android:layout_marginLeft="15dp"
-        android:padding="15dp"
         android:id="@+id/isPurchasedCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

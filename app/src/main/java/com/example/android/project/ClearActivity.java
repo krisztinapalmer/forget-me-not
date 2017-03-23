@@ -25,7 +25,7 @@ public class ClearActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clear);
 
-        List<ShoppingItem> items = new ArrayList<>();
+        ArrayList<ShoppingItem> items = new ArrayList<>();
         adapter = new ShoppingItemAdapter(this, items);
 
         ListView lvItems = (ListView) findViewById(R.id.lvClear);
@@ -36,21 +36,17 @@ public class ClearActivity extends AppCompatActivity {
         items = dataSource.getAll();
         dataSource.close();
 
-        if (items.size() == 0) {
-            Toast.makeText(this, R.string.No_item_stored_in_the_list, Toast.LENGTH_SHORT).show();
-        } else {
 
-            // Sorting
-            Collections.sort(items, new Comparator<ShoppingItem>() {
-                @Override
-                public int compare(ShoppingItem o1, ShoppingItem o2) {
-                    return o1.getIsPurchased() > o2.getIsPurchased() ? 1 : -1 ;
-                }
-            });
-
-            for (ShoppingItem item : items) {
-                adapter.add(item);
+        // Sorting
+        Collections.sort(items, new Comparator<ShoppingItem>() {
+            @Override
+            public int compare(ShoppingItem o1, ShoppingItem o2) {
+                return o1.getIsPurchased() > o2.getIsPurchased() ? 1 : -1 ;
             }
+        });
+
+        for (ShoppingItem item : items) {
+            adapter.add(item);
         }
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,7 +56,7 @@ public class ClearActivity extends AppCompatActivity {
                 dataSource = new ShoppingDataSource(ClearActivity.this);
                 dataSource.open();
                 dataSource.delete(item);
-                dataSource.close();
+
                 adapter.remove(adapter.getItem(position));
                 adapter.notifyDataSetChanged();
 
@@ -68,6 +64,14 @@ public class ClearActivity extends AppCompatActivity {
                 String msg = getResources().getString(R.string.has_been_removed_from_the_list);
                 Toast.makeText(ClearActivity.this, item.getName() +
                         " " + msg, Toast.LENGTH_SHORT).show();
+
+                ArrayList<ShoppingItem> items;
+                items = dataSource.getAll();
+                dataSource.close();
+                if (items.size() == 0) {
+                    Intent intent = new Intent(ClearActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

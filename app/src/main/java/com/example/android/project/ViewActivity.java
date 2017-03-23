@@ -33,21 +33,16 @@ public class ViewActivity extends AppCompatActivity {
         items = dataSource.getAll();
         dataSource.close();
 
-        if (items.size() == 0) {
-            Toast.makeText(this, R.string.No_item_stored_in_the_list, Toast.LENGTH_SHORT).show();
-        } else {
-
-            // Sorting
-            Collections.sort(items, new Comparator<ShoppingItem>() {
-                @Override
-                public int compare(ShoppingItem o1, ShoppingItem o2) {
-                    return o1.getIsPurchased() > o2.getIsPurchased() ? 1 : -1 ;
-                }
-            });
-
-            for (ShoppingItem item : items) {
-                adapter.add(item);
+        // Sorting
+        Collections.sort(items, new Comparator<ShoppingItem>() {
+            @Override
+            public int compare(ShoppingItem o1, ShoppingItem o2) {
+                return o1.getIsPurchased() > o2.getIsPurchased() ? 1 : -1 ;
             }
+        });
+
+        for (ShoppingItem item : items) {
+            adapter.add(item);
         }
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
